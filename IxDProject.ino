@@ -1,5 +1,4 @@
 #include <Adafruit_NeoPixel.h>
-#include <Arduino_LSM6DSOX.h>
 
 #define LED_PIN 3
 #define LED_COUNT 39
