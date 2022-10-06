@@ -5,7 +5,7 @@ BLEService newService("180A"); // creating the service
 
 BLEUnsignedCharCharacteristic randomReading("2A58", BLERead | BLENotify); // creating the Analog Value characteristic
 BLEByteCharacteristic switchChar("2A57", BLERead | BLEWrite); // creating the LED characteristic
-BLEByteCharacteristic switchChar("2A59", BLERead | BLEWrite); // creating the LED-strip characteristic
+BLEByteCharacteristic switchCharLED("2A59", BLERead | BLEWrite); // creating the LED-strip characteristic
 
 // ledPin is for single led indicating bluetooth connection.
 const int ledPin = 2;
@@ -13,7 +13,7 @@ long previousMillis = 0;
 
 #define LED_PIN 3
 #define LED_COUNT 4
-#define BRIGHTNESS 100
+#define BRIGHTNESS 5
 
 CRGB leds[LED_COUNT];
 
@@ -47,12 +47,14 @@ void setup() {
   BLE.setAdvertisedService(newService);
 
   newService.addCharacteristic(switchChar); //add characteristics to a service
+  newService.addCharacteristic(switchCharLED);
   newService.addCharacteristic(randomReading);
 
   BLE.addService(newService);  // adding the service
 
   switchChar.writeValue(0); //set initial value for characteristics
   randomReading.writeValue(0);
+  switchCharLED.writeValue(0);
 
   BLE.advertise(); //start advertising the service
   Serial.println("Bluetooth® device active, waiting for connections...");
@@ -82,8 +84,6 @@ void loop() {
 
     digitalWrite(LED_BUILTIN, HIGH); // turn on the LED to indicate the connection
 
-
-
     while (central.connected()) { // while the central is connected:
       long currentMillis = millis();
 
@@ -103,6 +103,24 @@ void loop() {
           }
         }
 
+        
+          if (switchCharLED.value()) {   // any value other than 0
+            Serial.println("LED-strip on");
+            FastLED.setBrightness(BRIGHTNESS);
+            FastLED.delay(1000);
+            fill_solid(leds, LED_COUNT, CRGB::Blue);
+            FastLED.delay(1000);
+            fill_solid(leds, LED_COUNT, CRGB::Red);
+            FastLED.delay(1000);
+            fill_solid(leds, LED_COUNT, CRGB::Green);
+            FastLED.delay(1000);
+            fill_solid(leds, LED_COUNT, CRGB::Yellow);
+          } else {                              // a 0 value
+            Serial.println(F("LED-strip off"));
+            fill_solid(leds, LED_COUNT, CRGB::White);
+          }
+        
+
       }
     }
 
@@ -110,17 +128,6 @@ void loop() {
     Serial.print("Disconnected from central: ");
     Serial.println(central.address());
   }
-
-
-  FastLED.setBrightness(BRIGHTNESS);
-  FastLED.delay(1000);
-  fill_solid(leds, LED_COUNT, CRGB::Blue);
-  FastLED.delay(1000);
-  fill_solid(leds, LED_COUNT, CRGB::Red);
-  FastLED.delay(1000);
-  fill_solid(leds, LED_COUNT, CRGB::Green);
-  FastLED.delay(1000);
-  fill_solid(leds, LED_COUNT, CRGB::Yellow);
 
 //   // loop over the NUM_LEDS
 //  for (int cur = 0; cur < LED_COUNT; cur++) {
