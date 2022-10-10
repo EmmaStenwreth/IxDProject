@@ -13,12 +13,17 @@ CRGB leds[LED1_COUNT];
 byte r,g,b;
 float brightness;
 
+int vibration1 = 2;
+
 void setup() {
   // put your setup code here, to run once:
 
   FastLED.addLeds<NEOPIXEL, LED1>(leds, LED1_COUNT);
 
   pinMode(LED1, OUTPUT);
+
+  pinMode(vibration1, OUTPUT);
+  digitalWrite(vibration1, LOW);
 
   Serial1.begin(9600);
   Serial.begin(115200);
@@ -46,21 +51,55 @@ void loop() {
 
   playSong();
 
-  FastLED.setBrightness(BRIGHTNESS);
-  FastLED.delay(1000);
-            fill_solid(leds, LED1_COUNT, CRGB::Blue);
-            FastLED.delay(1000);
-            fill_solid(leds, LED1_COUNT, CRGB::Red);
-            FastLED.delay(1000);
-            fill_solid(leds, LED1_COUNT, CRGB::Green);
-            FastLED.delay(1000);
-            fill_solid(leds, LED1_COUNT, CRGB::Yellow);
-
 }
 
 void playSong() {
   myDFPlayer.volume(20);  //Set volume value. From 0 to 30
   myDFPlayer.play(1);  //Play the first mp3
+
+  delay(588*7);
+
+  FastLED.setBrightness(BRIGHTNESS);
+    
+  fill_solid(leds, LED1_COUNT, CRGB::Red);
+  FastLED.delay(588*2);
+  digitalWrite(vibration1, HIGH);
+  fill_solid(leds, LED1_COUNT, CRGB::Blue);
+  FastLED.delay(588*2);
+  digitalWrite(vibration1, LOW);
+  fill_solid(leds, LED1_COUNT, CRGB::Red);
+  FastLED.delay(588*2);
+  fill_solid(leds, LED1_COUNT, CRGB::Blue);
+  FastLED.delay(588*2);
+  fill_solid(leds, LED1_COUNT, CRGB::Red);
+  FastLED.delay(588*2);
+  fill_solid(leds, LED1_COUNT, CRGB::Blue);
+  FastLED.delay(588*2);
+  fill_solid(leds, LED1_COUNT, CRGB::Red);
+  FastLED.delay(588*2);
+  fill_solid(leds, LED1_COUNT, CRGB::Blue);
+  FastLED.delay(588*2);
+
+  fill_solid(leds, LED1_COUNT, CRGB::Yellow);
+  FastLED.delay(588*2);
+  fill_solid(leds, LED1_COUNT, CRGB::Green);
+  FastLED.delay(588*2);
+  fill_solid(leds, LED1_COUNT, CRGB::Yellow);
+  FastLED.delay(588*2);
+  fill_solid(leds, LED1_COUNT, CRGB::Green);
+  FastLED.delay(588*2);
+  fill_solid(leds, LED1_COUNT, CRGB::Yellow);
+  FastLED.delay(588*2);
+  fill_solid(leds, LED1_COUNT, CRGB::Green);
+  FastLED.delay(588*2);
+  fill_solid(leds, LED1_COUNT, CRGB::Yellow);
+  FastLED.delay(588*2);
+  fill_solid(leds, LED1_COUNT, CRGB::Green);
+  FastLED.delay(588*2);
+
+  stopSong();
+  
+  
 }
 
 void stopSong() {
