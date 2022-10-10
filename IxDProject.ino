@@ -23,7 +23,7 @@ void setup() {
   pinMode(LED1, OUTPUT);
 
   pinMode(vibration1, OUTPUT);
-  digitalWrite(vibration1, LOW);
+  analogWrite(vibration1, 0);
 
   Serial1.begin(9600);
   Serial.begin(115200);
@@ -49,11 +49,22 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-  playSong();
+  digitalWrite(vibration1, HIGH); //vibrate
+  delay(1000);  // delay one second
+  digitalWrite(vibration1, LOW);  //stop vibrating
+  delay(1000); 
+
+  delay(500000);
+
+  //playSong();
 
 }
 
 void playSong() {
+
+  FastLED.clear();
+  FastLED.show();
+
   myDFPlayer.volume(20);  //Set volume value. From 0 to 30
   myDFPlayer.play(1);  //Play the first mp3
 
@@ -95,6 +106,47 @@ void playSong() {
   fill_solid(leds, LED1_COUNT, CRGB::Yellow);
   FastLED.delay(588*2);
   fill_solid(leds, LED1_COUNT, CRGB::Green);
+  FastLED.delay(588*2);
+  
+  leds[0] = CRGB:: Yellow;
+  leds[1] = CRGB:: Red;
+  leds[2] = CRGB:: Green;
+  leds[3] = CRGB:: Blue;
+  FastLED.delay(588*2);
+  leds[0] = CRGB:: Blue;
+  leds[1] = CRGB:: Green;
+  leds[2] = CRGB:: Red;
+  leds[3] = CRGB:: Yellow;
+  FastLED.delay(588*2);
+  leds[0] = CRGB:: Yellow;
+  leds[1] = CRGB:: Red;
+  leds[2] = CRGB:: Green;
+  leds[3] = CRGB:: Blue;
+  FastLED.delay(588*2);
+  leds[0] = CRGB:: Blue;
+  leds[1] = CRGB:: Green;
+  leds[2] = CRGB:: Red;
+  leds[3] = CRGB:: Yellow;
+  FastLED.delay(588*2);
+  leds[0] = CRGB:: Yellow;
+  leds[1] = CRGB:: Red;
+  leds[2] = CRGB:: Green;
+  leds[3] = CRGB:: Blue;
+  FastLED.delay(588*2);
+  leds[0] = CRGB:: Blue;
+  leds[1] = CRGB:: Green;
+  leds[2] = CRGB:: Red;
+  leds[3] = CRGB:: Yellow;
+  FastLED.delay(588*2);
+  leds[0] = CRGB:: Yellow;
+  leds[1] = CRGB:: Red;
+  leds[2] = CRGB:: Green;
+  leds[3] = CRGB:: Blue;
+  FastLED.delay(588*2);
+  leds[0] = CRGB:: Blue;
+  leds[1] = CRGB:: Green;
+  leds[2] = CRGB:: Red;
+  leds[3] = CRGB:: Yellow;
   FastLED.delay(588*2);
 
   stopSong();
