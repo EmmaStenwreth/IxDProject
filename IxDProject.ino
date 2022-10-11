@@ -72,7 +72,7 @@ void playSong() {
   FastLED.clear();
   FastLED.show();
 
-  myDFPlayer.volume(10);  //Set volume value. From 0 to 30
+  myDFPlayer.volume(30);  //Set volume value. From 0 to 30
   myDFPlayer.play(1);  //Play the first mp3
   delay(588*7);
 
@@ -174,6 +174,43 @@ void vibrationAndLedDelay() {
   vibrateHigh();
   FastLED.delay(588);
   vibrateLow();
+}
+
+//LED-Strip combinations
+void leftUp() {
+  fill_solid(leds, LED1_COUNT, CRGB::Red);
+}
+
+void leftDown() {
+  fill_solid(leds, LED1_COUNT, CRGB::Red);
+}
+
+void rightUp() {
+  fill_solid(leds, LED1_COUNT, CRGB::Red);
+}
+
+void rightDown() {
+  fill_solid(leds, LED1_COUNT, CRGB::Red);
+}
+
+void up() {
+  fill_solid(leds, LED1_COUNT, CRGB::Red);
+  fill_solid(leds2, LED2_COUNT, CRGB::Red);
+}
+
+void down() {
+  fill_solid(leds, LED1_COUNT, CRGB::Red);
+  fill_solid(leds2, LED2_COUNT, CRGB::Red);
+}
+
+void left() {
+  fill_solid(leds, LED1_COUNT, CRGB::Red);
+  fill_solid(leds2, LED2_COUNT, CRGB::Red);
+}
+
+void right() {
+  fill_solid(leds, LED1_COUNT, CRGB::Red);
+  fill_solid(leds2, LED2_COUNT, CRGB::Red);
 }
 
 void stopSong() {
