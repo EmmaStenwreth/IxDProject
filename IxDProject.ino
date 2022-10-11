@@ -8,7 +8,13 @@ void printDetail(uint8_t type, int value);
 #define LED1_COUNT 4
 #define BRIGHTNESS 5
 
+#define LED2 0
+#define LED2_COUNT 8
+
+
 CRGB leds[LED1_COUNT];
+
+CRGB leds2[LED2_COUNT];
 
 byte r,g,b;
 float brightness;
@@ -19,8 +25,10 @@ void setup() {
   // put your setup code here, to run once:
 
   FastLED.addLeds<NEOPIXEL, LED1>(leds, LED1_COUNT);
+  FastLED.addLeds<NEOPIXEL, LED2>(leds2, LED2_COUNT);
 
   pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
 
   pinMode(vibration1, OUTPUT);
   //analogWrite(vibration1, 0);// This code makes it vibrate all the time :(
@@ -64,7 +72,7 @@ void playSong() {
   FastLED.clear();
   FastLED.show();
 
-  myDFPlayer.volume(15);  //Set volume value. From 0 to 30
+  myDFPlayer.volume(10);  //Set volume value. From 0 to 30
   myDFPlayer.play(1);  //Play the first mp3
   delay(588*7);
 
@@ -72,6 +80,7 @@ void playSong() {
     
   vibrateLow();  
   fill_solid(leds, LED1_COUNT, CRGB::Red);
+  fill_solid(leds2, LED2_COUNT, CRGB::Red);
   vibrationAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Blue);
   vibrationAndLedDelay();
