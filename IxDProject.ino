@@ -23,7 +23,7 @@ void setup() {
   pinMode(LED1, OUTPUT);
 
   pinMode(vibration1, OUTPUT);
-  analogWrite(vibration1, 0);
+  //analogWrite(vibration1, 0);// This code makes it vibrate all the time :(
 
   Serial1.begin(9600);
   Serial.begin(115200);
@@ -49,109 +49,122 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-  digitalWrite(vibration1, HIGH); //vibrate
-  delay(1000);  // delay one second
-  digitalWrite(vibration1, LOW);  //stop vibrating
-  delay(1000); 
+  //digitalWrite(vibration1, HIGH); //vibrate
+  //delay(1000);  // delay one second
+  //digitalWrite(vibration1, LOW);  //stop vibrating
+  //delay(1000); 
 
-  delay(500000);
-
-  //playSong();
+  //delay(500000);
+  //vibrate();
+  playSong();
 
 }
 
 void playSong() {
-
   FastLED.clear();
   FastLED.show();
 
-  myDFPlayer.volume(20);  //Set volume value. From 0 to 30
+  myDFPlayer.volume(15);  //Set volume value. From 0 to 30
   myDFPlayer.play(1);  //Play the first mp3
-
   delay(588*7);
 
   FastLED.setBrightness(BRIGHTNESS);
     
+  vibrateLow();  
   fill_solid(leds, LED1_COUNT, CRGB::Red);
-  FastLED.delay(588*2);
-  digitalWrite(vibration1, HIGH);
+  vibrationAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Blue);
-  FastLED.delay(588*2);
-  digitalWrite(vibration1, LOW);
+  vibrationAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Red);
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Blue);
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Red);
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Blue);
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Red);
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Blue);
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
 
   fill_solid(leds, LED1_COUNT, CRGB::Yellow);
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Green);
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Yellow);
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Green);
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Yellow);
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Green);
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Yellow);
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Green);
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   
   leds[0] = CRGB:: Yellow;
   leds[1] = CRGB:: Red;
   leds[2] = CRGB:: Green;
   leds[3] = CRGB:: Blue;
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   leds[0] = CRGB:: Blue;
   leds[1] = CRGB:: Green;
   leds[2] = CRGB:: Red;
   leds[3] = CRGB:: Yellow;
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   leds[0] = CRGB:: Yellow;
   leds[1] = CRGB:: Red;
   leds[2] = CRGB:: Green;
   leds[3] = CRGB:: Blue;
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   leds[0] = CRGB:: Blue;
   leds[1] = CRGB:: Green;
   leds[2] = CRGB:: Red;
   leds[3] = CRGB:: Yellow;
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   leds[0] = CRGB:: Yellow;
   leds[1] = CRGB:: Red;
   leds[2] = CRGB:: Green;
   leds[3] = CRGB:: Blue;
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   leds[0] = CRGB:: Blue;
   leds[1] = CRGB:: Green;
   leds[2] = CRGB:: Red;
   leds[3] = CRGB:: Yellow;
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   leds[0] = CRGB:: Yellow;
   leds[1] = CRGB:: Red;
   leds[2] = CRGB:: Green;
   leds[3] = CRGB:: Blue;
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
   leds[0] = CRGB:: Blue;
   leds[1] = CRGB:: Green;
   leds[2] = CRGB:: Red;
   leds[3] = CRGB:: Yellow;
-  FastLED.delay(588*2);
+  vibrationAndLedDelay();
+  vibrateLow();
 
   stopSong();
   
   
+}
+
+void vibrateHigh() {
+  digitalWrite(vibration1, HIGH); //vibrate 
+}
+
+void vibrateLow() {
+  digitalWrite(vibration1, LOW); //dont vibrate
+}
+
+void vibrationAndLedDelay() {
+  FastLED.delay(588);
+  vibrateHigh();
+  FastLED.delay(588);
+  vibrateLow();
 }
 
 void stopSong() {
