@@ -77,7 +77,7 @@ void playSong() {
   FastLED.clear();
   FastLED.show();
 
-  myDFPlayer.volume(1);  //Set volume value. From 0 to 30
+  myDFPlayer.volume(10);  //Set volume value. From 0 to 30
   myDFPlayer.play(1);  //Play the first mp3
   delay(588*7);
 
