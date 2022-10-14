@@ -11,10 +11,17 @@ void printDetail(uint8_t type, int value);
 #define LED2 2
 #define LED2_COUNT 6
 
+#define LED3 3
+#define LED3_COUNT 6
+
+#define LED4 4
+#define LED4_COUNT 6
+
 
 CRGB leds[LED1_COUNT];
-
 CRGB leds2[LED2_COUNT];
+CRGB leds3[LED3_COUNT];
+CRGB leds4[LED4_COUNT];
 
 byte r,g,b;
 float brightness;
@@ -29,9 +36,13 @@ void setup() {
 
   FastLED.addLeds<NEOPIXEL, LED1>(leds, LED1_COUNT);
   FastLED.addLeds<NEOPIXEL, LED2>(leds2, LED2_COUNT);
+  FastLED.addLeds<NEOPIXEL, LED3>(leds3, LED3_COUNT);
+  FastLED.addLeds<NEOPIXEL, LED4>(leds4, LED4_COUNT);
 
   pinMode(LED1, OUTPUT);
   pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
+  pinMode(LED4, OUTPUT);
 
   pinMode(vibration1, OUTPUT);
   pinMode(vibration2, OUTPUT);
@@ -86,6 +97,56 @@ void playSong() {
   //vibrateLow();  
   //fill_solid(leds, LED1_COUNT, CRGB::Red);
   //fill_solid(leds2, LED2_COUNT, CRGB::Red);
+  right();
+  vibrationUpAndLedDelay();
+  off();
+  left();
+  vibrationUpAndLedDelay();
+  off();
+  right();
+  vibrationUpAndLedDelay();
+  off();
+  left();
+  vibrationUpAndLedDelay();
+  off();
+  right();
+  vibrationUpAndLedDelay();
+  off();
+  left();
+  vibrationUpAndLedDelay();
+  off();
+  right();
+  vibrationUpAndLedDelay();
+  off();
+  left();
+  vibrationUpAndLedDelay();
+  off();
+  up();
+  vibrationUpAndLedDelay();
+  off();
+  down();
+  vibrationUpAndLedDelay();
+  off();
+  up();
+  vibrationUpAndLedDelay();
+  off();
+  down();
+  vibrationUpAndLedDelay();
+  off();
+  up();
+  vibrationUpAndLedDelay();
+  off();
+  down();
+  vibrationUpAndLedDelay();
+  off();
+  up();
+  vibrationUpAndLedDelay();
+  off();
+  down();
+  vibrationUpAndLedDelay();
+  off();
+
+  /*
   right();
   vibrationUpAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Blue);
@@ -160,6 +221,7 @@ void playSong() {
   leds[2] = CRGB:: Red;
   leds[3] = CRGB:: Yellow;
   vibrationUpAndLedDelay();
+  */
 
   stopSong();
   
@@ -232,20 +294,24 @@ void vibrationRightDownAndLedDelay() {
 
 
 //LED-Strip combinations
+void off() {
+  FastLED.clear();
+}
+
 void leftUp() {
-  fill_solid(leds, LED1_COUNT, CRGB::Green);
+  fill_solid(leds2, LED2_COUNT, CRGB::Green);
 }
 
 void leftDown() {
-  fill_solid(leds, LED1_COUNT, CRGB::Blue);
+  fill_solid(leds3, LED3_COUNT, CRGB::Blue);
 }
 
 void rightUp() {
-  fill_solid(leds2, LED2_COUNT, CRGB::Orange);
+  fill_solid(leds, LED1_COUNT, CRGB::Orange);
 }
 
 void rightDown() {
-  fill_solid(leds, LED1_COUNT, CRGB::Pink);
+  fill_solid(leds4, LED4_COUNT, CRGB::Pink);
 }
 
 void up() {
@@ -254,18 +320,18 @@ void up() {
 }
 
 void down() {
-  fill_solid(leds, LED1_COUNT, CRGB::Blue);
-  fill_solid(leds2, LED2_COUNT, CRGB::Blue);
+  fill_solid(leds3, LED3_COUNT, CRGB::Blue);
+  fill_solid(leds4, LED4_COUNT, CRGB::Blue);
 }
 
 void left() {
-  fill_solid(leds, LED1_COUNT, CRGB::Green);
   fill_solid(leds2, LED2_COUNT, CRGB::Green);
+  fill_solid(leds3, LED3_COUNT, CRGB::Green);
 }
 
 void right() {
   fill_solid(leds, LED1_COUNT, CRGB::Red);
-  fill_solid(leds2, LED2_COUNT, CRGB::Red);
+  fill_solid(leds4, LED4_COUNT, CRGB::Red);
 }
 
 void stopSong() {
