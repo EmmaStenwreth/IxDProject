@@ -5,7 +5,7 @@ void printDetail(uint8_t type, int value);
 #include <FastLED.h>
 
 #define LED1 1
-#define LED1_COUNT 4
+#define LED1_COUNT 6
 #define BRIGHTNESS 5
 
 #define LED2 2
@@ -17,19 +17,23 @@ void printDetail(uint8_t type, int value);
 #define LED4 4
 #define LED4_COUNT 6
 
+#define LED5 5
+#define LED5_COUNT 14
+
 
 CRGB leds[LED1_COUNT];
 CRGB leds2[LED2_COUNT];
 CRGB leds3[LED3_COUNT];
 CRGB leds4[LED4_COUNT];
+CRGB ledsBall[LED5_COUNT];
 
 byte r,g,b;
 float brightness;
 
-int vibration1 = A1;
-int vibration2 = A2;
-int vibration3 = A3;
-int vibration4 = A4;
+int vibration1 = A1; //Right up
+int vibration2 = A2; // left up
+int vibration3 = A3; // left Down
+int vibration4 = A4; // right down
 
 void setup() {
   // put your setup code here, to run once:
@@ -38,14 +42,18 @@ void setup() {
   FastLED.addLeds<NEOPIXEL, LED2>(leds2, LED2_COUNT);
   FastLED.addLeds<NEOPIXEL, LED3>(leds3, LED3_COUNT);
   FastLED.addLeds<NEOPIXEL, LED4>(leds4, LED4_COUNT);
+  FastLED.addLeds<NEOPIXEL, LED5>(ledsBall, LED5_COUNT);
 
   pinMode(LED1, OUTPUT);
   pinMode(LED2, OUTPUT);
   pinMode(LED3, OUTPUT);
   pinMode(LED4, OUTPUT);
+  pinMode(LED5, OUTPUT);
 
   pinMode(vibration1, OUTPUT);
   pinMode(vibration2, OUTPUT);
+  pinMode(vibration3, OUTPUT);
+  pinMode(vibration4, OUTPUT);
   //analogWrite(vibration1, 0);// This code makes it vibrate all the time :(
 
   Serial1.begin(9600);
@@ -98,52 +106,52 @@ void playSong() {
   //fill_solid(leds, LED1_COUNT, CRGB::Red);
   //fill_solid(leds2, LED2_COUNT, CRGB::Red);
   right();
-  vibrationUpAndLedDelay();
+  vibrationRightAndLedDelay();
   off();
   left();
-  vibrationUpAndLedDelay();
+  vibrationLeftAndLedDelay();
   off();
   right();
-  vibrationUpAndLedDelay();
+  vibrationRightAndLedDelay();
   off();
   left();
-  vibrationUpAndLedDelay();
+  vibrationLeftAndLedDelay();
   off();
   right();
-  vibrationUpAndLedDelay();
+  vibrationRightAndLedDelay();
   off();
   left();
-  vibrationUpAndLedDelay();
+  vibrationLeftAndLedDelay();
   off();
   right();
-  vibrationUpAndLedDelay();
+  vibrationRightAndLedDelay();
   off();
   left();
-  vibrationUpAndLedDelay();
+  vibrationLeftAndLedDelay();
   off();
   up();
   vibrationUpAndLedDelay();
   off();
   down();
-  vibrationUpAndLedDelay();
+  vibrationDownAndLedDelay();
   off();
   up();
   vibrationUpAndLedDelay();
   off();
   down();
-  vibrationUpAndLedDelay();
+  vibrationDownAndLedDelay();
   off();
   up();
   vibrationUpAndLedDelay();
   off();
   down();
-  vibrationUpAndLedDelay();
+  vibrationDownAndLedDelay();
   off();
   up();
   vibrationUpAndLedDelay();
   off();
   down();
-  vibrationUpAndLedDelay();
+  vibrationDownAndLedDelay();
   off();
 
   /*
@@ -300,38 +308,102 @@ void off() {
 
 void leftUp() {
   fill_solid(leds2, LED2_COUNT, CRGB::Green);
+  ballLeftUp();
 }
 
 void leftDown() {
   fill_solid(leds3, LED3_COUNT, CRGB::Blue);
+  ballLeftDown();
 }
 
 void rightUp() {
   fill_solid(leds, LED1_COUNT, CRGB::Orange);
+  ballRightUp();
 }
 
 void rightDown() {
   fill_solid(leds4, LED4_COUNT, CRGB::Pink);
+  ballRightDown();
 }
 
 void up() {
   fill_solid(leds, LED1_COUNT, CRGB::Yellow);
-  fill_solid(leds2, LED2_COUNT, CRGB::Yellow);
+  fill_solid(leds2, LED2_COUNT, CRGB::Yellow);  
+  ballUp();
 }
 
 void down() {
   fill_solid(leds3, LED3_COUNT, CRGB::Blue);
   fill_solid(leds4, LED4_COUNT, CRGB::Blue);
+  ballDown();
 }
 
 void left() {
   fill_solid(leds2, LED2_COUNT, CRGB::Green);
   fill_solid(leds3, LED3_COUNT, CRGB::Green);
+  ballLeft();
 }
 
 void right() {
   fill_solid(leds, LED1_COUNT, CRGB::Red);
   fill_solid(leds4, LED4_COUNT, CRGB::Red);
+  ballRight();
+}
+
+void ballAll() {
+  fill_solid(ledsBall, LED5_COUNT, CRGB::AntiqueWhite);  
+}
+
+// Here is ball! 
+void ballLeftUp() {
+  for (int i = 6; i < 10; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Green;
+  }
+}
+
+void ballLeftDown() {
+  for (int i = 9; i < 14; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Blue;
+  }
+}
+
+void ballRightUp() {
+  for (int i = 3; i < 7; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Red;
+  }
+}
+
+void ballRightDown() {
+  for (int i = 0; i < 4; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Red;
+  }
+}
+
+void ballUp() {
+  for (int i = 3; i < 10; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Red;
+  }
+}
+
+void ballDown() {
+  for (int i = 0; i < 3; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Red;
+  }
+  for (int j = 9; j < 14; j++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[j] = CRGB::Red;
+  }
+}
+
+void ballLeft() {
+  for (int i = 6; i < 14; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Red;
+  }
+}
+
+void ballRight() {
+  for (int i = 0; i < 7; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Red;
+  }
 }
 
 void stopSong() {
