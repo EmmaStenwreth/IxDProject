@@ -299,7 +299,12 @@ void playSong() {
   up();
   vibrationUpAndLedDelay();
   off();
-  // SHAKE SHAKE SHAKE! 
+  // The up motion should NOT notify to move to the middle this time so the player stays up.  
+  //-------------------------
+  shakira();
+  vibrationAllAndLedDelay();
+  off();
+  //-------------------------
   rightUp();
   vibrationRightUpAndLedDelay();
   off();
@@ -346,8 +351,6 @@ void playSong() {
   off();
 
   stopSong();
-  
-  
 }
 
 void stopSong() {

@@ -134,6 +134,35 @@ void rotateCounterClockwise() {
 // Power pose! -------------------------------------
 void powerPose() {
   // Blink pink
+  fill_solid(leds1, LED1_COUNT, CRGB::Pink);
+  fill_solid(leds2, LED2_COUNT, CRGB::Pink);
+  fill_solid(leds3, LED3_COUNT, CRGB::Pink);
+  fill_solid(leds4, LED4_COUNT, CRGB::Pink);
+  fill_solid(leds5, LED5_COUNT, CRGB::Pink);
+  FastLED.delay(588/4);
+  off();
+  fill_solid(leds1, LED1_COUNT, CRGB::Pink);
+  fill_solid(leds2, LED2_COUNT, CRGB::Pink);
+  fill_solid(leds3, LED3_COUNT, CRGB::Pink);
+  fill_solid(leds4, LED4_COUNT, CRGB::Pink);
+  fill_solid(leds5, LED5_COUNT, CRGB::Pink);
+  FastLED.delay(588/4);
+  off();
+  fill_solid(leds1, LED1_COUNT, CRGB::Pink);
+  fill_solid(leds2, LED2_COUNT, CRGB::Pink);
+  fill_solid(leds3, LED3_COUNT, CRGB::Pink);
+  fill_solid(leds4, LED4_COUNT, CRGB::Pink);
+  fill_solid(leds5, LED5_COUNT, CRGB::Pink);
+  FastLED.delay(588/4);
+  off();
+  fill_solid(leds1, LED1_COUNT, CRGB::Pink);
+  fill_solid(leds2, LED2_COUNT, CRGB::Pink);
+  fill_solid(leds3, LED3_COUNT, CRGB::Pink);
+  fill_solid(leds4, LED4_COUNT, CRGB::Pink);
+  fill_solid(leds5, LED5_COUNT, CRGB::Pink);
+  FastLED.delay(588/4);
+  off();
+
 }
 
 // Shakira (rotate above head) ------------------------------------------
