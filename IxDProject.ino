@@ -94,7 +94,8 @@ void loop() {
   //vibrate();
 
   buttonState = digitalRead(BUTTON);
-
+  // Can only start program, not stop it. 
+  // To implement that, look at this: https://littlebirdelectronics.com.au/guides/49/use-a-push-button-with-arduino
   if(buttonState == HIGH) playSong();
 }
 
