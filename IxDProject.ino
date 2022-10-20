@@ -159,6 +159,32 @@ void playSong() {
   off();
 
   // Sequence 3
+  leftUp();
+  vibrationLeftUpAndLedDelay();
+  off();
+  rightDown();
+  vibrationRightDownAndLedDelay();
+  off();
+  rightUp();
+  vibrationRightUpAndLedDelay();
+  off();
+  leftDown();
+  vibrationLeftDownAndLedDelay();
+  off();
+  leftUp();
+  vibrationLeftUpAndLedDelay();
+  off();
+  rightDown();
+  vibrationRightDownAndLedDelay();
+  off();
+  rightUp();
+  vibrationRightUpAndLedDelay();
+  off();
+  leftDown();
+  vibrationLeftDownAndLedDelay();
+  off();
+
+  // Sequence 4
   rotateClockwise();
   vibrationAllAndDelay();
   off();
@@ -169,6 +195,146 @@ void playSong() {
   vibrationAllAndDelay();
   off();
   rotateCounterClockwise();
+  vibrationAllAndDelay();
+  off();
+  up();
+  vibrationUpAndLedDelay();
+  off();
+  down();
+  vibrationDownAndLedDelay();
+  off();
+  up();
+  vibrationUpAndLedDelay();
+  off();
+  powerPose();
+  vibrationAllAndDelay();
+  off();
+
+  // Sequence 5
+  right();
+  vibrationRightAndLedDelay();
+  off();
+  left();
+  vibrationLeftAndLedDelay();
+  off();
+  right();
+  vibrationRightAndLedDelay();
+  off();
+  left();
+  vibrationLeftAndLedDelay();
+  off();
+  right();
+  vibrationRightAndLedDelay();
+  off();
+  left();
+  vibrationLeftAndLedDelay();
+  off();
+  right();
+  vibrationRightAndLedDelay();
+  off();
+  left();
+  vibrationLeftAndLedDelay();
+  off();
+
+  //Sequence 6
+  up();
+  vibrationUpAndLedDelay();
+  off();
+  down();
+  vibrationDownAndLedDelay();
+  off();
+  up();
+  vibrationUpAndLedDelay();
+  off();
+  down();
+  vibrationDownAndLedDelay();
+  off();
+  up();
+  vibrationUpAndLedDelay();
+  off();
+  down();
+  vibrationDownAndLedDelay();
+  off();
+  up();
+  vibrationUpAndLedDelay();
+  off();
+  down();
+  vibrationDownAndLedDelay();
+  off();
+
+  // Sequence 7
+  rotateClockwise();
+  vibrationAllAndDelay();
+  off();
+  rotateCounterClockwise();
+  vibrationAllAndDelay();
+  off();
+  rotateClockwise();
+  vibrationAllAndDelay();
+  off();
+  rotateCounterClockwise();
+  vibrationAllAndDelay();
+  off();
+  rotateClockwise();
+  vibrationAllAndDelay();
+  off();
+  rotateCounterClockwise();
+  vibrationAllAndDelay();
+  off();
+  rotateClockwise();
+  vibrationAllAndDelay();
+  off();
+  rotateCounterClockwise();
+  vibrationAllAndDelay();
+  off();
+
+  // Sequence 8
+  up();
+  vibrationUpAndLedDelay();
+  off();
+  // SHAKE SHAKE SHAKE! 
+  rightUp();
+  vibrationRightUpAndLedDelay();
+  off();
+  leftDown();
+  vibrationLeftDownAndLedDelay();
+  off();
+  leftUp();
+  vibrationLeftUpAndLedDelay();
+  off();
+  rightDown();
+  vibrationRightDownAndLedDelay();
+  off();
+  rightUp();
+  vibrationRightUpAndLedDelay();
+  off();
+  leftDown();
+  vibrationLeftDownAndLedDelay();
+  off();
+
+// Sequence 9
+  rotateClockwise();
+  vibrationAllAndDelay();
+  off();
+  rotateCounterClockwise();
+  vibrationAllAndDelay();
+  off();
+  rotateClockwise();
+  vibrationAllAndDelay();
+  off();
+  rotateCounterClockwise();
+  vibrationAllAndDelay();
+  off();
+  up();
+  vibrationUpAndLedDelay();
+  off();
+  down();
+  vibrationDownAndLedDelay();
+  off();
+  up();
+  vibrationUpAndLedDelay();
+  off();
+  powerPose();
   vibrationAllAndDelay();
   off();
 
@@ -388,6 +554,15 @@ void rotateCounterClockwise() {
   ballLeftDown();
   rightDown();
   ballRightDown();
+}
+
+// Power pose! -------------------------------------
+void powerPose() {
+  fill_solid(leds1, LED1_COUNT, CRGB::AntiqueWhite);
+  fill_solid(leds2, LED2_COUNT, CRGB::AntiqueWhite);
+  fill_solid(leds3, LED3_COUNT, CRGB::AntiqueWhite);
+  fill_solid(leds4, LED4_COUNT, CRGB::AntiqueWhite);
+  ballAll();
 }
 
 void stopSong() {
