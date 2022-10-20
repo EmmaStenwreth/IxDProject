@@ -105,6 +105,8 @@ void playSong() {
   //vibrateLow();  
   //fill_solid(leds, LED1_COUNT, CRGB::Red);
   //fill_solid(leds2, LED2_COUNT, CRGB::Red);
+  
+  // Sequence 1
   right();
   vibrationRightAndLedDelay();
   off();
@@ -129,6 +131,8 @@ void playSong() {
   left();
   vibrationLeftAndLedDelay();
   off();
+  
+  // Sequence 2
   up();
   vibrationUpAndLedDelay();
   off();
@@ -154,7 +158,194 @@ void playSong() {
   vibrationDownAndLedDelay();
   off();
 
-  /*
+  // Sequence 3
+
+
+  stopSong();
+  
+  
+}
+
+// Vibration movement UP
+void vibrationUpAndLedDelay() {
+  digitalWrite(vibration2, HIGH); 
+  FastLED.delay(588);
+  digitalWrite(vibration1, HIGH); 
+  digitalWrite(vibration2, LOW);
+  FastLED.delay(588);
+  digitalWrite(vibration1, LOW);
+}
+// Vibration movement DOWN
+void vibrationDownAndLedDelay() {
+  digitalWrite(vibration4, HIGH);
+  digitalWrite(vibration3, HIGH);  
+  FastLED.delay(588);
+  digitalWrite(vibration3, LOW);
+  digitalWrite(vibration4, LOW);
+  FastLED.delay(588);
+}
+// Vibration movement LEFT
+void vibrationLeftAndLedDelay() {
+  digitalWrite(vibration2, HIGH);
+  digitalWrite(vibration3, HIGH);  
+  FastLED.delay(588);
+  digitalWrite(vibration2, LOW);
+  digitalWrite(vibration3, LOW);
+  FastLED.delay(588);
+}
+// Vibration movement RIGHT
+void vibrationRightAndLedDelay() {
+  digitalWrite(vibration4, HIGH); 
+  FastLED.delay(588);
+  digitalWrite(vibration1, HIGH); 
+  digitalWrite(vibration4, LOW);
+  FastLED.delay(588);
+  digitalWrite(vibration1, LOW);
+}
+// Vibration movememnt LEFT UP
+void vibrationLeftUpAndLedDelay() {
+  digitalWrite(vibration2, HIGH); 
+  FastLED.delay(588);
+  digitalWrite(vibration2, LOW);
+  FastLED.delay(588);
+}
+// Vibration movement LEFT DOWN
+void vibrationLeftDownAndLedDelay() {
+  digitalWrite(vibration3, HIGH); 
+  FastLED.delay(588);
+  digitalWrite(vibration3, LOW);
+  FastLED.delay(588);
+}
+// Vibration movement RIGHT UP
+void vibrationRightUpAndLedDelay() {
+  FastLED.delay(588);
+  digitalWrite(vibration1, HIGH); 
+  FastLED.delay(588);
+  digitalWrite(vibration1, LOW);
+}
+// Vibration movement DOWN RIGHT
+void vibrationRightDownAndLedDelay() {
+  digitalWrite(vibration4, HIGH); 
+  FastLED.delay(588);
+  digitalWrite(vibration4, LOW);
+  FastLED.delay(588);
+}
+
+
+//LED-Strip combinations
+// Turn off all lights.
+void off() {
+  FastLED.clear();
+}
+
+// Diagonal moves
+void leftUp() {
+  fill_solid(leds2, LED2_COUNT, CRGB::Green);
+  ballLeftUp();
+}
+
+void leftDown() {
+  fill_solid(leds3, LED3_COUNT, CRGB::Blue);
+  ballLeftDown();
+}
+
+void rightUp() {
+  fill_solid(leds, LED1_COUNT, CRGB::Orange);
+  ballRightUp();
+}
+
+void rightDown() {
+  fill_solid(leds4, LED4_COUNT, CRGB::Pink);
+  ballRightDown();
+}
+
+// x/y-moves
+void up() {
+  fill_solid(leds, LED1_COUNT, CRGB::Yellow);
+  fill_solid(leds2, LED2_COUNT, CRGB::Yellow);  
+  ballUp();
+}
+
+void down() {
+  fill_solid(leds3, LED3_COUNT, CRGB::Blue);
+  fill_solid(leds4, LED4_COUNT, CRGB::Blue);
+  ballDown();
+}
+
+void left() {
+  fill_solid(leds2, LED2_COUNT, CRGB::Green);
+  fill_solid(leds3, LED3_COUNT, CRGB::Green);
+  ballLeft();
+}
+
+void right() {
+  fill_solid(leds, LED1_COUNT, CRGB::Red);
+  fill_solid(leds4, LED4_COUNT, CRGB::Red);
+  ballRight();
+}
+
+// Whole ball white light
+void ballAll() {
+  fill_solid(ledsBall, LED5_COUNT, CRGB::AntiqueWhite);  
+}
+
+// Here is ball! 
+void ballLeftUp() {
+  for (int i = 6; i < 10; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Green;
+  }
+}
+
+void ballLeftDown() {
+  for (int i = 9; i < 14; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Blue;
+  }
+}
+
+void ballRightUp() {
+  for (int i = 3; i < 7; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Red;
+  }
+}
+
+void ballRightDown() {
+  for (int i = 0; i < 4; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Red;
+  }
+}
+
+void ballUp() {
+  for (int i = 3; i < 10; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Red;
+  }
+}
+
+void ballDown() {
+  for (int i = 0; i < 3; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Red;
+  }
+  for (int j = 9; j < 14; j++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[j] = CRGB::Red;
+  }
+}
+
+void ballLeft() {
+  for (int i = 6; i < 14; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Red;
+  }
+}
+
+void ballRight() {
+  for (int i = 0; i < 7; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Red;
+  }
+}
+
+void stopSong() {
+  myDFPlayer.stop();
+}
+
+ /*
   right();
   vibrationUpAndLedDelay();
   fill_solid(leds, LED1_COUNT, CRGB::Blue);
@@ -230,182 +421,3 @@ void playSong() {
   leds[3] = CRGB:: Yellow;
   vibrationUpAndLedDelay();
   */
-
-  stopSong();
-  
-  
-}
-
-void vibrationUpAndLedDelay() {
-  digitalWrite(vibration2, HIGH); 
-  FastLED.delay(588);
-  digitalWrite(vibration1, HIGH); 
-  digitalWrite(vibration2, LOW);
-  FastLED.delay(588);
-  digitalWrite(vibration1, LOW);
-}
-
-void vibrationDownAndLedDelay() {
-  digitalWrite(vibration4, HIGH);
-  digitalWrite(vibration3, HIGH);  
-  FastLED.delay(588);
-  digitalWrite(vibration3, LOW);
-  digitalWrite(vibration4, LOW);
-  FastLED.delay(588);
-}
-
-void vibrationLeftAndLedDelay() {
-  digitalWrite(vibration2, HIGH);
-  digitalWrite(vibration3, HIGH);  
-  FastLED.delay(588);
-  digitalWrite(vibration2, LOW);
-  digitalWrite(vibration3, LOW);
-  FastLED.delay(588);
-}
-
-void vibrationRightAndLedDelay() {
-  digitalWrite(vibration4, HIGH); 
-  FastLED.delay(588);
-  digitalWrite(vibration1, HIGH); 
-  digitalWrite(vibration4, LOW);
-  FastLED.delay(588);
-  digitalWrite(vibration1, LOW);
-}
-
-void vibrationLeftUpAndLedDelay() {
-  digitalWrite(vibration2, HIGH); 
-  FastLED.delay(588);
-  digitalWrite(vibration2, LOW);
-  FastLED.delay(588);
-}
-
-void vibrationLeftDownAndLedDelay() {
-  digitalWrite(vibration3, HIGH); 
-  FastLED.delay(588);
-  digitalWrite(vibration3, LOW);
-  FastLED.delay(588);
-}
-
-void vibrationRightUpAndLedDelay() {
-  FastLED.delay(588);
-  digitalWrite(vibration1, HIGH); 
-  FastLED.delay(588);
-  digitalWrite(vibration1, LOW);
-}
-
-void vibrationRightDownAndLedDelay() {
-  digitalWrite(vibration4, HIGH); 
-  FastLED.delay(588);
-  digitalWrite(vibration4, LOW);
-  FastLED.delay(588);
-}
-
-
-//LED-Strip combinations
-void off() {
-  FastLED.clear();
-}
-
-void leftUp() {
-  fill_solid(leds2, LED2_COUNT, CRGB::Green);
-  ballLeftUp();
-}
-
-void leftDown() {
-  fill_solid(leds3, LED3_COUNT, CRGB::Blue);
-  ballLeftDown();
-}
-
-void rightUp() {
-  fill_solid(leds, LED1_COUNT, CRGB::Orange);
-  ballRightUp();
-}
-
-void rightDown() {
-  fill_solid(leds4, LED4_COUNT, CRGB::Pink);
-  ballRightDown();
-}
-
-void up() {
-  fill_solid(leds, LED1_COUNT, CRGB::Yellow);
-  fill_solid(leds2, LED2_COUNT, CRGB::Yellow);  
-  ballUp();
-}
-
-void down() {
-  fill_solid(leds3, LED3_COUNT, CRGB::Blue);
-  fill_solid(leds4, LED4_COUNT, CRGB::Blue);
-  ballDown();
-}
-
-void left() {
-  fill_solid(leds2, LED2_COUNT, CRGB::Green);
-  fill_solid(leds3, LED3_COUNT, CRGB::Green);
-  ballLeft();
-}
-
-void right() {
-  fill_solid(leds, LED1_COUNT, CRGB::Red);
-  fill_solid(leds4, LED4_COUNT, CRGB::Red);
-  ballRight();
-}
-
-void ballAll() {
-  fill_solid(ledsBall, LED5_COUNT, CRGB::AntiqueWhite);  
-}
-
-// Here is ball! 
-void ballLeftUp() {
-  for (int i = 6; i < 10; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
-    ledsBall[i] = CRGB::Green;
-  }
-}
-
-void ballLeftDown() {
-  for (int i = 9; i < 14; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
-    ledsBall[i] = CRGB::Blue;
-  }
-}
-
-void ballRightUp() {
-  for (int i = 3; i < 7; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
-    ledsBall[i] = CRGB::Red;
-  }
-}
-
-void ballRightDown() {
-  for (int i = 0; i < 4; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
-    ledsBall[i] = CRGB::Red;
-  }
-}
-
-void ballUp() {
-  for (int i = 3; i < 10; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
-    ledsBall[i] = CRGB::Red;
-  }
-}
-
-void ballDown() {
-  for (int i = 0; i < 3; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
-    ledsBall[i] = CRGB::Red;
-  }
-  for (int j = 9; j < 14; j++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
-    ledsBall[j] = CRGB::Red;
-  }
-}
-
-void ballLeft() {
-  for (int i = 6; i < 14; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
-    ledsBall[i] = CRGB::Red;
-  }
-}
-
-void ballRight() {
-  for (int i = 0; i < 7; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
-    ledsBall[i] = CRGB::Red;
-  }
-}
-
-void stopSong() {
-  myDFPlayer.stop();
-}
