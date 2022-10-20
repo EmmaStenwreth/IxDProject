@@ -159,7 +159,18 @@ void playSong() {
   off();
 
   // Sequence 3
-
+  rotateClockwise();
+  vibrationAllAndDelay();
+  off();
+  rotateCounterClockwise();
+  vibrationAllAndDelay();
+  off();
+  rotateClockwise();
+  vibrationAllAndDelay();
+  off();
+  rotateCounterClockwise();
+  vibrationAllAndDelay();
+  off();
 
   stopSong();
   
@@ -229,6 +240,19 @@ void vibrationRightUpAndLedDelay() {
 void vibrationRightDownAndLedDelay() {
   digitalWrite(vibration4, HIGH); 
   FastLED.delay(588);
+  digitalWrite(vibration4, LOW);
+  FastLED.delay(588);
+}
+// Vibration all
+void vibrationAllAndDelay() {
+  digitalWrite(vibration1, HIGH);
+  digitalWrite(vibration2, HIGH);
+  digitalWrite(vibration3, HIGH);
+  digitalWrite(vibration4, HIGH); 
+  FastLED.delay(588);
+  digitalWrite(vibration1, LOW);
+  digitalWrite(vibration2, LOW);
+  digitalWrite(vibration3, LOW);
   digitalWrite(vibration4, LOW);
   FastLED.delay(588);
 }
@@ -341,6 +365,29 @@ void ballRight() {
   for (int i = 0; i < 7; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
     ledsBall[i] = CRGB::Red;
   }
+}
+
+// Rotation moves ----------------------------------------------------
+void rotateClockwise() {
+  leftUp();
+  ballLeftUp();
+  rightUp();
+  ballRightUp();
+  rightDown();
+  ballRightDown();
+  leftDown();
+  ballLeftDown();
+}
+
+void rotateCounterClockwise() {
+  rightUp();
+  ballRightUp();
+  leftUp();
+  ballLeftUp();
+  leftDown();
+  ballLeftDown();
+  rightDown();
+  ballRightDown();
 }
 
 void stopSong() {
