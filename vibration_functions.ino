@@ -66,14 +66,14 @@ void vibrationRightDownAndLedDelay() {
 }
 // Vibration all
 void vibrationAllAndDelay() {
-  digitalWrite(vibration1, HIGH);
   digitalWrite(vibration2, HIGH);
   digitalWrite(vibration3, HIGH);
   digitalWrite(vibration4, HIGH); 
   FastLED.delay(588);
-  digitalWrite(vibration1, LOW);
+  digitalWrite(vibration1, HIGH);
   digitalWrite(vibration2, LOW);
   digitalWrite(vibration3, LOW);
   digitalWrite(vibration4, LOW);
   FastLED.delay(588);
+  digitalWrite(vibration1, LOW);
 }

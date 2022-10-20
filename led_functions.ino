@@ -108,6 +108,55 @@ void ballRight() {
   }
 }
 
+// Rotation shakira move ball
+void ballLeftUpYellow() {
+  for (int i = 6; i < 10; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Yellow;
+  }
+}
+
+void clearLeftUp(){
+  for(int i = 6; i < 10; i++){
+    ledsBall[i].clear();
+  }
+}
+
+void ballLeftDownYellow() {
+  for (int i = 9; i < 14; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Yellow;
+  }
+}
+
+void clearLeftDown(){
+  for(int i = 9; i < 14; i++){
+    ledsBall[i].clear();
+  }
+}
+
+void ballRightUpYellow() {
+  for (int i = 3; i < 7; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Yellow;
+  }
+}
+
+void clearRightUp(){
+  for(int i = 3; i < 7; i++){
+    ledsBall[i].clear();
+  }
+}
+
+void ballRightDownYellow() {
+  for (int i = 0; i < 4; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
+    ledsBall[i] = CRGB::Yellow;
+  }
+}
+
+void clearRightDown(){
+  for(int i = 0; i < 4; i++){
+    ledsBall[i].clear();
+  }
+}
+
 // Rotation moves ----------------------------------------------------
 void rotateClockwise() {
   leftUp();
@@ -133,7 +182,6 @@ void rotateCounterClockwise() {
 
 // Power pose! -------------------------------------
 void powerPose() {
-  // Blink pink
   fill_solid(leds1, LED1_COUNT, CRGB::Pink);
   fill_solid(leds2, LED2_COUNT, CRGB::Pink);
   fill_solid(leds3, LED3_COUNT, CRGB::Pink);
@@ -167,5 +215,24 @@ void powerPose() {
 
 // Shakira (rotate above head) ------------------------------------------
 void shakira() {
+  fill_solid(leds2, LED2_COUNT, CRGB::Yellow);
+  ballLeftUpYellow();
+  fill_solid(leds1, LED1_COUNT, CRGB::Yellow);
+  leds2.clear(); // Think this might work?
+  clearLeftUp();
+  fill_solid(leds4, LED4_COUNT, CRGB::Yellow);
+  leds1.clear();
+  clearRightUp();
+  fill_solid(leds3, LED3_COUNT, CRGB::Yellow);
+  leds4.clear();
+  clearRightDown();
+}
 
+// Move to middle -------------------------------------------------------
+void moveToMiddle(){
+  fill_solid(leds1, LED1_COUNT, CRGB::AntiqueWhite);
+  fill_solid(leds2, LED2_COUNT, CRGB::AntiqueWhite);
+  fill_solid(leds3, LED3_COUNT, CRGB::AntiqueWhite);
+  fill_solid(leds4, LED4_COUNT, CRGB::AntiqueWhite);
+  ballAll();
 }
