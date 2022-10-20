@@ -565,6 +565,11 @@ void powerPose() {
   ballAll();
 }
 
+// Shake! ------------------------------------------
+void shake() {
+  
+}
+
 void stopSong() {
   myDFPlayer.stop();
 }
