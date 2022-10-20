@@ -20,6 +20,8 @@ void printDetail(uint8_t type, int value);
 #define LED5 5
 #define LED5_COUNT 14
 
+#define BUTTON 6
+int buttonState = 0; 
 
 CRGB leds1[LED1_COUNT];
 CRGB leds2[LED2_COUNT];
@@ -37,6 +39,8 @@ int vibration4 = A4; // right down
 
 void setup() {
   // put your setup code here, to run once:
+
+  pinMode(BUTTON, INPUT);
 
   FastLED.addLeds<NEOPIXEL, LED1>(leds1, LED1_COUNT);
   FastLED.addLeds<NEOPIXEL, LED2>(leds2, LED2_COUNT);
@@ -88,8 +92,10 @@ void loop() {
 
   //delay(500000);
   //vibrate();
-  playSong();
 
+  buttonState = digitalRead(BUTTON);
+
+  if(buttonState == HIGH) playSong();
 }
 
 void playSong() {

@@ -133,11 +133,7 @@ void rotateCounterClockwise() {
 
 // Power pose! -------------------------------------
 void powerPose() {
-  fill_solid(leds1, LED1_COUNT, CRGB::AntiqueWhite);
-  fill_solid(leds2, LED2_COUNT, CRGB::AntiqueWhite);
-  fill_solid(leds3, LED3_COUNT, CRGB::AntiqueWhite);
-  fill_solid(leds4, LED4_COUNT, CRGB::AntiqueWhite);
-  ballAll();
+  // Blink pink
 }
 
 // Shakira (rotate above head) ------------------------------------------
