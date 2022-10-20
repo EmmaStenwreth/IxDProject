@@ -21,7 +21,7 @@ void printDetail(uint8_t type, int value);
 #define LED5_COUNT 14
 
 
-CRGB leds[LED1_COUNT];
+CRGB leds1[LED1_COUNT];
 CRGB leds2[LED2_COUNT];
 CRGB leds3[LED3_COUNT];
 CRGB leds4[LED4_COUNT];
@@ -38,7 +38,7 @@ int vibration4 = A4; // right down
 void setup() {
   // put your setup code here, to run once:
 
-  FastLED.addLeds<NEOPIXEL, LED1>(leds, LED1_COUNT);
+  FastLED.addLeds<NEOPIXEL, LED1>(leds1, LED1_COUNT);
   FastLED.addLeds<NEOPIXEL, LED2>(leds2, LED2_COUNT);
   FastLED.addLeds<NEOPIXEL, LED3>(leds3, LED3_COUNT);
   FastLED.addLeds<NEOPIXEL, LED4>(leds4, LED4_COUNT);
@@ -252,7 +252,7 @@ void leftDown() {
 }
 
 void rightUp() {
-  fill_solid(leds, LED1_COUNT, CRGB::Orange);
+  fill_solid(leds1, LED1_COUNT, CRGB::Orange);
   ballRightUp();
 }
 
@@ -263,7 +263,7 @@ void rightDown() {
 
 // x/y-moves ------------------------
 void up() {
-  fill_solid(leds, LED1_COUNT, CRGB::Yellow);
+  fill_solid(leds1, LED1_COUNT, CRGB::Yellow);
   fill_solid(leds2, LED2_COUNT, CRGB::Yellow);  
   ballUp();
 }
