@@ -315,7 +315,7 @@ void ballAll() {
   fill_solid(ledsBall, LED5_COUNT, CRGB::AntiqueWhite);  
 }
 
-// Here is ball! 
+// Here is ball! -------------------------
 void ballLeftUp() {
   for (int i = 6; i < 10; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
     ledsBall[i] = CRGB::Green;
