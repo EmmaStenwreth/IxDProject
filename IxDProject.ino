@@ -166,6 +166,8 @@ void playSong() {
   
 }
 
+// Vibration motors ----------------------------------------------------------------------
+
 // Vibration movement UP
 void vibrationUpAndLedDelay() {
   digitalWrite(vibration2, HIGH); 
@@ -231,14 +233,14 @@ void vibrationRightDownAndLedDelay() {
   FastLED.delay(588);
 }
 
+//LED-Strip combinations ----------------------------------------------------------------------
 
-//LED-Strip combinations
 // Turn off all lights.
 void off() {
   FastLED.clear();
 }
 
-// Diagonal moves
+// Diagonal moves ------------------
 void leftUp() {
   fill_solid(leds2, LED2_COUNT, CRGB::Green);
   ballLeftUp();
@@ -259,7 +261,7 @@ void rightDown() {
   ballRightDown();
 }
 
-// x/y-moves
+// x/y-moves ------------------------
 void up() {
   fill_solid(leds, LED1_COUNT, CRGB::Yellow);
   fill_solid(leds2, LED2_COUNT, CRGB::Yellow);  
