@@ -75,7 +75,6 @@ void setup() {
       while(true);
     }
     Serial.println(F("DFPlayer Mini online."));
-
   /*playSong();
   delay(10000);
   stopSong();*/
@@ -92,11 +91,12 @@ void loop() {
 
   //delay(500000);
   //vibrate();
-
   buttonState = digitalRead(BUTTON);
   // Can only start program, not stop it. 
   // To implement that, look at this: https://littlebirdelectronics.com.au/guides/49/use-a-push-button-with-arduino
   if(buttonState == HIGH) playSong();
+  FastLED.clear();
+  FastLED.show();
 }
 
 void playSong() {
@@ -138,6 +138,7 @@ void playSong() {
   moveToMiddle();
   vibrationRightAndLedDelay();
   off();
+  /*
   right();
   vibrationRightAndLedDelay();
   off();
@@ -162,7 +163,7 @@ void playSong() {
   moveToMiddle();
   vibrationRightAndLedDelay();
   off();  
-  
+  */
   // Sequence 2
   up();
   vibrationUpAndLedDelay();
@@ -188,6 +189,7 @@ void playSong() {
   moveToMiddle();
   vibrationUpAndLedDelay();
   off();
+  /*
   up();
   vibrationUpAndLedDelay();
   off();
@@ -212,32 +214,8 @@ void playSong() {
   moveToMiddle();
   vibrationUpAndLedDelay();
   off();
-  
+  */
   // Sequence 3
-  leftUp();
-  vibrationLeftUpAndLedDelay();
-  off();
-  moveToMiddle();
-  vibrationRightDownAndLedDelay();
-  off();
-  rightDown();
-  vibrationRightDownAndLedDelay();
-  off();
-  moveToMiddle();
-  vibrationLeftUpAndLedDelay();
-  off();
-  leftUp();
-  vibrationLeftUpAndLedDelay();
-  off();
-  moveToMiddle();
-  vibrationRightDownAndLedDelay();
-  off();
-  rightDown();
-  vibrationRightDownAndLedDelay();
-  off();
-  moveToMiddle();
-  vibrationLeftUpAndLedDelay();
-  off();
   leftUp();
   vibrationLeftUpAndLedDelay();
   off();
@@ -264,29 +242,134 @@ void playSong() {
   off();
 
   // Sequence 4
-  rotateClockwise();
-  vibrationAllAndDelay();
+  rightUp();
+  vibrationRightUpAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationLeftDownAndLedDelay();
+  off();
+  leftDown();
+  vibrationLeftDownAndLedDelay();
+  off();
+  moveToMiddle();
+  vibrationRightUpAndLedDelay();
+  off();
+  rightUp();
+  vibrationRightUpAndLedDelay();
+  off();
+  moveToMiddle();
+  vibrationLeftDownAndLedDelay();
+  off();
+  leftDown();
+  vibrationLeftDownAndLedDelay();
+  off();
+  moveToMiddle();
+  vibrationRightUpAndLedDelay();
+  off();
+
+
+
+  right();
+  vibrationRightAndLedDelay();
+  off();
+  moveToMiddle();
+  vibrationLeftAndLedDelay();
+  off();
+  left();
+  vibrationLeftAndLedDelay();
+  off();
+  moveToMiddle();
+  vibrationRightAndLedDelay();
+  off();
+  right();
+  vibrationRightAndLedDelay();
+  off();
+  moveToMiddle();
+  vibrationLeftAndLedDelay();
+  off();
+  left();
+  vibrationLeftAndLedDelay();
+  off();
+  moveToMiddle();
+  vibrationRightAndLedDelay();
+  off();
+
+
+   up();
+  vibrationUpAndLedDelay();
+  off();
+  moveToMiddle();
+  vibrationDownAndLedDelay();
+  off();
+  down();
+  vibrationDownAndLedDelay();
+  off();
+  moveToMiddle();
+  vibrationUpAndLedDelay();
+  off();
+  up();
+  vibrationUpAndLedDelay();
+  off();
+  moveToMiddle();
+  vibrationDownAndLedDelay();
+  off();
+  down();
+  vibrationDownAndLedDelay();
+  off();
+  moveToMiddle2();
+  vibrationUpAndLedDelay();
+  off();
+/*  
+  leftUp();
+  vibrationLeftUpAndLedDelay();
+  off();
+  moveToMiddle();
+  vibrationRightDownAndLedDelay();
+  off();
+  rightDown();
+  vibrationRightDownAndLedDelay();
+  off();
+  moveToMiddle();
+  vibrationLeftUpAndLedDelay();
+  off();
+  leftUp();
+  vibrationLeftUpAndLedDelay();
+  off();
+  moveToMiddle();
+  vibrationRightDownAndLedDelay();
+  off();
+  rightDown();
+  vibrationRightDownAndLedDelay();
+  off();
+  moveToMiddle();
+  vibrationLeftUpAndLedDelay();
+  off();
+*/
+/*
+  // Sequence 4
+  rotateClockwise();
+  vibrationAllAndLedDelay();
+  off();
+  moveToMiddle();
+  vibrationAllAndLedDelay();
   off();
   rotateCounterClockwise();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   rotateClockwise();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   rotateCounterClockwise();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   up();
   vibrationUpAndLedDelay();
@@ -306,7 +389,9 @@ void playSong() {
   moveToMiddle();
   vibrationDownAndLedDelay();
   off();
-
+  */
+/////////////
+/*
   // Sequence 5
   right();
   vibrationRightAndLedDelay();
@@ -409,52 +494,52 @@ void playSong() {
 
   // Sequence 7
   rotateClockwise();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   rotateCounterClockwise();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   rotateClockwise();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   rotateCounterClockwise();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   rotateClockwise();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   rotateCounterClockwise();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   rotateClockwise();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   rotateCounterClockwise();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
 
   // Sequence 8
@@ -499,7 +584,7 @@ void playSong() {
   vibrationRightUpAndLedDelay();
   off();
   moveToMiddle();
-  vibrationsLeftDownAndLedDelay();
+  vibrationLeftDownAndLedDelay();
   off();
   leftDown();
   vibrationLeftDownAndLedDelay();
@@ -510,28 +595,28 @@ void playSong() {
 
 // Sequence 9
   rotateClockwise();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   rotateCounterClockwise();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   rotateClockwise();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   rotateCounterClockwise();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   up();
   vibrationUpAndLedDelay();
@@ -552,11 +637,13 @@ void playSong() {
   vibrationDownAndLedDelay();
   off();
   powerPose();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
   moveToMiddle();
-  vibrationAllAndDelay();
+  vibrationAllAndLedDelay();
   off();
+
+  */
 
   stopSong(); 
 }

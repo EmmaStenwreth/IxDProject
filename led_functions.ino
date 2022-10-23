@@ -17,19 +17,19 @@ void leftDown() {
 }
 
 void rightUp() {
-  fill_solid(leds1, LED1_COUNT, CRGB::Orange);
+  fill_solid(leds1, LED1_COUNT, CRGB::Red);
   ballRightUp();
 }
 
 void rightDown() {
-  fill_solid(leds4, LED4_COUNT, CRGB::Pink);
+  fill_solid(leds4, LED4_COUNT, CRGB::Yellow);
   ballRightDown();
 }
 
 // x/y-moves ------------------------
 void up() {
-  fill_solid(leds1, LED1_COUNT, CRGB::Yellow);
-  fill_solid(leds2, LED2_COUNT, CRGB::Yellow);  
+  fill_solid(leds1, LED1_COUNT, CRGB::Purple);
+  fill_solid(leds2, LED2_COUNT, CRGB::Purple);  
   ballUp();
 }
 
@@ -46,8 +46,8 @@ void left() {
 }
 
 void right() {
-  fill_solid(leds, LED1_COUNT, CRGB::Red);
-  fill_solid(leds4, LED4_COUNT, CRGB::Red);
+  fill_solid(leds1, LED1_COUNT, CRGB::Yellow);
+  fill_solid(leds4, LED4_COUNT, CRGB::Yellow);
   ballRight();
 }
 
@@ -77,34 +77,34 @@ void ballRightUp() {
 
 void ballRightDown() {
   for (int i = 0; i < 4; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
-    ledsBall[i] = CRGB::Red;
+    ledsBall[i] = CRGB::Yellow;
   }
 }
 
 void ballUp() {
   for (int i = 3; i < 10; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
-    ledsBall[i] = CRGB::Red;
+    ledsBall[i] = CRGB::Purple;
   }
 }
 
 void ballDown() {
   for (int i = 0; i < 3; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
-    ledsBall[i] = CRGB::Red;
+    ledsBall[i] = CRGB::Blue;
   }
   for (int j = 9; j < 14; j++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
-    ledsBall[j] = CRGB::Red;
+    ledsBall[j] = CRGB::Blue;
   }
 }
 
 void ballLeft() {
   for (int i = 6; i < 14; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
-    ledsBall[i] = CRGB::Red;
+    ledsBall[i] = CRGB::Green;
   }
 }
 
 void ballRight() {
   for (int i = 0; i < 7; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
-    ledsBall[i] = CRGB::Red;
+    ledsBall[i] = CRGB::Yellow;
   }
 }
 
@@ -115,23 +115,26 @@ void ballLeftUpYellow() {
   }
 }
 
+/*
 void clearLeftUp(){
   for(int i = 6; i < 10; i++){
     ledsBall[i].clear();
   }
 }
+*/
 
 void ballLeftDownYellow() {
   for (int i = 9; i < 14; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
     ledsBall[i] = CRGB::Yellow;
   }
 }
-
+/*
 void clearLeftDown(){
   for(int i = 9; i < 14; i++){
     ledsBall[i].clear();
   }
 }
+*/
 
 void ballRightUpYellow() {
   for (int i = 3; i < 7; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
@@ -139,11 +142,13 @@ void ballRightUpYellow() {
   }
 }
 
+/*
 void clearRightUp(){
   for(int i = 3; i < 7; i++){
     ledsBall[i].clear();
   }
 }
+*/
 
 void ballRightDownYellow() {
   for (int i = 0; i < 4; i++) { //Change the values of i = 0 and LED5_COUNT to the leds we want to go to 
@@ -151,11 +156,13 @@ void ballRightDownYellow() {
   }
 }
 
+/*
 void clearRightDown(){
   for(int i = 0; i < 4; i++){
     ledsBall[i].clear();
   }
 }
+*/
 
 // Rotation moves ----------------------------------------------------
 void rotateClockwise() {
@@ -186,28 +193,28 @@ void powerPose() {
   fill_solid(leds2, LED2_COUNT, CRGB::Pink);
   fill_solid(leds3, LED3_COUNT, CRGB::Pink);
   fill_solid(leds4, LED4_COUNT, CRGB::Pink);
-  fill_solid(leds5, LED5_COUNT, CRGB::Pink);
+  fill_solid(ledsBall, LED5_COUNT, CRGB::Pink);
   FastLED.delay(588/4);
   off();
   fill_solid(leds1, LED1_COUNT, CRGB::Pink);
   fill_solid(leds2, LED2_COUNT, CRGB::Pink);
   fill_solid(leds3, LED3_COUNT, CRGB::Pink);
   fill_solid(leds4, LED4_COUNT, CRGB::Pink);
-  fill_solid(leds5, LED5_COUNT, CRGB::Pink);
+  fill_solid(ledsBall, LED5_COUNT, CRGB::Pink);
   FastLED.delay(588/4);
   off();
   fill_solid(leds1, LED1_COUNT, CRGB::Pink);
   fill_solid(leds2, LED2_COUNT, CRGB::Pink);
   fill_solid(leds3, LED3_COUNT, CRGB::Pink);
   fill_solid(leds4, LED4_COUNT, CRGB::Pink);
-  fill_solid(leds5, LED5_COUNT, CRGB::Pink);
+  fill_solid(ledsBall, LED5_COUNT, CRGB::Pink);
   FastLED.delay(588/4);
   off();
   fill_solid(leds1, LED1_COUNT, CRGB::Pink);
   fill_solid(leds2, LED2_COUNT, CRGB::Pink);
   fill_solid(leds3, LED3_COUNT, CRGB::Pink);
   fill_solid(leds4, LED4_COUNT, CRGB::Pink);
-  fill_solid(leds5, LED5_COUNT, CRGB::Pink);
+  fill_solid(ledsBall, LED5_COUNT, CRGB::Pink);
   FastLED.delay(588/4);
   off();
 
@@ -218,14 +225,14 @@ void shakira() {
   fill_solid(leds2, LED2_COUNT, CRGB::Yellow);
   ballLeftUpYellow();
   fill_solid(leds1, LED1_COUNT, CRGB::Yellow);
-  leds2.clear(); // Think this might work?
-  clearLeftUp();
+  //leds2.clear(); // Think this might work?
+  //clearLeftUp();
   fill_solid(leds4, LED4_COUNT, CRGB::Yellow);
-  leds1.clear();
-  clearRightUp();
+  //leds1.clear();
+  //clearRightUp();
   fill_solid(leds3, LED3_COUNT, CRGB::Yellow);
-  leds4.clear();
-  clearRightDown();
+  //leds4.clear();
+  //clearRightDown();
 }
 
 // Move to middle -------------------------------------------------------
@@ -236,3 +243,17 @@ void moveToMiddle(){
   fill_solid(leds4, LED4_COUNT, CRGB::AntiqueWhite);
   ballAll();
 }
+
+void moveToMiddle2(){
+  fill_solid(leds1, LED1_COUNT, CRGB::Purple);
+  fill_solid(leds2, LED2_COUNT, CRGB::Purple);
+  fill_solid(leds3, LED3_COUNT, CRGB::Purple);
+  fill_solid(leds4, LED4_COUNT, CRGB::Purple);
+  ballAll2();
+}
+
+void ballAll2() {
+  fill_solid(ledsBall, LED5_COUNT, CRGB::Purple);  
+}
+
+
